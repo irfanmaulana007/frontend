@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "authors": [
+    "irfan maulana <irfanmaulana007@icloud.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "Font-Awesome#^4.7.0",
+    "jQuery": "^3.2.1",
+    "animate.css": "^3.5.2"
+  }
+}
