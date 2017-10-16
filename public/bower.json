@@ -18,6 +18,8 @@
     "bootstrap": "^3.3.7",
     "font-awesome": "Font-Awesome#^4.7.0",
     "jQuery": "^3.2.1",
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "moment": "^2.19.1",
+    "vue": "^2.5.2"
   }
 }
