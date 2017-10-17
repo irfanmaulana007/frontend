@@ -50,6 +50,25 @@ body {
         transition: .4s;
         opacity: 1; }
 
+#story-board .story {
+  background-color: white;
+  padding: 10px 40px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  #story-board .story .row {
+    margin-bottom: 10px; }
+    #story-board .story .row .header .img img {
+      background-color: red;
+      height: 45px;
+      width: 45px;
+      border-radius: 50%; }
+    #story-board .story .row .header .username, #story-board .story .row .header .datetime {
+      font-size: 14px; }
+    #story-board .story .row .action .component {
+      margin-right: 20px; }
+
 footer {
   margin-top: 100px; }
 

@@ -25,13 +25,14 @@
                 </div>
                 <div class="row">
                     <div id="welcome">
-                     @{{ message }}
+                        @{{ message }}
                     </div>
                     <div id="on-learning">
                       <ol>
-                        <li v-for="todo in todos">
-                          @{{ todo.text }}
-                        </li>
+                        <list-learn
+                          v-for="todo in todos"
+                          v-bind:todo="todo">
+                        </list-learn>
                       </ol>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -45,29 +46,28 @@
             <br>
 
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="card card1 hover fadeInUp animated">
-                        <div class="text-overlay">
-                            <h3>Detail..</h3>
-                        </div>
+                <div id="card">
+                    <div class="col-sm-3" v-for="card in carditem">
+                        <card 
+                            v-bind:todo="card"
+                            v-bind:class="card.class">
+                        </card>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="card card2 hover fadeInUp animated">
-                        <div class="text-overlay">
-                            <h3>Click me!!</h3>
-                        </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <div id="story-board">
+                        <story v-for="story in storyitem"
+                            v-bind:todo="story">
+                        </story>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="card card3 hover fadeInUp animated">
-                        <div class="text-overlay">
-                            <h3>More..</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <todo-card></todo-card>
+                <div class="col-xs-6">
+                    
                 </div>
             </div>
 
@@ -90,6 +90,10 @@
               }
             })
 
+            Vue.component('list-learn', {
+              props: ['todo'],
+              template: '<li>@{{ todo.text }}</li>'
+            })
             var learn = new Vue({
               el: '#on-learning',
               data: {
@@ -104,10 +108,37 @@
               }
             })
 
-            Vue.component('todo-card', {
+            Vue.component('card', {
                 props: ['todo'],
-                template: '<div class="card card4 hover fadeInUp animated"><div class="text-overlay"><h3>Well</h3></div></div>'
+                template: '<div class="card hover fadeInUp animated"><div class="text-overlay"><h3>@{{ todo.text }}</h3></div></div>'
+            })
+            var cards = new Vue({
+              el: '#card',
+              data: {
+                carditem: [
+                  { class: 'card1', text: 'satu' },
+                  { class: 'card2', text: 'dua' },
+                  { class: 'card3', text: 'tiga' },
+                  { class: 'card4', text: 'empat' }
+                ]
+              }
+            })
+
+            Vue.component('story', {
+              props: ['todo'],
+              template: '<div class="story"><div class="row"><div class="header"><div class="col-xs-2"><div class="img"><img src=""></div></div><div class="col-xs-8"><div class="username">@{{ todo.username }}</div> <div class="datetime">@{{ todo.datetime }}</div></div><div class="col-xs-2"><div class="option pull-right"><i class="fa fa-ellipsis-h"></i></div></div></div></div><div class="row"><div class="message"><div class="col-xs-12">@{{ todo.message }}</div></div></div><hr><div class="row"><div class="col-xs-12"><div class="action"><div class="component pull-left"><i class="fa fa-thumbs-o-up"></i> Like</div><div class="component pull-left"><i class="fa fa-comment-o"></i> Comment</div></div></div></div></div>'
+            })
+            var story = new Vue({
+              el: '#story-board',
+              data: {
+                storyitem: [
+                    @foreach($story as $stories)
+                        { img: '1', username: '{{ $stories->username }}', datetime: '{{ $stories->datetime }}', message: '{{ $stories->message }}' },
+                    @endforeach
+                ]
+              }
             })
         </script>
+
     </body>
 </html>
